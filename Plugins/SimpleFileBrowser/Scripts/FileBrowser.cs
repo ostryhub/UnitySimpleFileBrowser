@@ -2874,7 +2874,13 @@ namespace SimpleFileBrowser
 			Instance.AcceptNonExistingFilename = acceptNonExistingFilename;
 
 			Instance.Show( initialPath, initialFilename );
-
+			
+			EventSystem eventSystem = Instance.transform.GetComponentInChildren<EventSystem>();
+			if (eventSystem != null)
+			{
+				UnityEngine.Object.DestroyImmediate(eventSystem);	
+			}
+			
 			return true;
 		}
 
